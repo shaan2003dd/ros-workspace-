@@ -1,0 +1,8 @@
+# Default initial positions for my_robot's ros2_control fake system
+
+initial_positions:
+  MOTOR_Revolute-17: 0
+  base_link_Slider-13: 0
+  link_1_Revolute-14: 0
+  link_2_Revolute-15: 0
+  link_3_Revolute-16: 0

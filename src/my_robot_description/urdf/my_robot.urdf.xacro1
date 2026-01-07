@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_robot">
+
+  <!-- ===================== -->
+  <!-- Properties            -->
+  <!-- ===================== -->
+  <xacro:property name="pkg" value="package://my_robot_description"/>
+  <xacro:property name="scale" value="0.001 0.001 0.001"/>
+
+  <!-- ===================== -->
+  <!-- LINK MACRO            -->
+  <!-- ===================== -->
+  <xacro:macro name="link_with_mesh"
+               params="name mass ixx iyy izz ixy iyz ixz
+                       inertial_xyz inertial_rpy
+                       visual_xyz visual_rpy
+                       mesh">
+
+    <link name="${name}">
+      <inertial>
+        <origin xyz="${inertial_xyz}" rpy="${inertial_rpy}"/>
+        <mass value="${mass}"/>
+        <inertia ixx="${ixx}" iyy="${iyy}" izz="${izz}"
+                 ixy="${ixy}" iyz="${iyz}" ixz="${ixz}"/>
+      </inertial>
+
+      <visual>
+        <origin xyz="${visual_xyz}" rpy="${visual_rpy}"/>
+        <geometry>
+          <mesh filename="${pkg}/mesh/${mesh}.stl" scale="${scale}"/>
+        </geometry>
+      </visual>
+
+      <collision>
+        <origin xyz="${visual_xyz}" rpy="${visual_rpy}"/>
+        <geometry>
+          <mesh filename="${pkg}/mesh/${mesh}.stl" scale="${scale}"/>
+        </geometry>
+      </collision>
+    </link>
+
+  </xacro:macro>
+
+  <!-- ===================== -->
+  <!-- WORLD LINK            -->
+  <!-- ===================== -->
+  <link name="world"/>
+
+  <!-- ===================== -->
+  <!-- BASE LINK             -->
+  <!-- ===================== -->
+  <xacro:link_with_mesh
+    name="base_link"
+    mass="8.265034673577567"
+    ixx="0.1139885142981153"
+    iyy="0.10917707896684134"
+    izz="0.05621229396517552"
+    ixy="0" iyz="0" ixz="0.014048243532484041"
+    inertial_xyz="0.0451023 0.0985 0.0946131"
+    inertial_rpy="0 0 0"
+    visual_xyz="0 0 0"
+    visual_rpy="0 0 0"
+    mesh="base_link"/>
+
+  <!-- ===================== -->
+  <!-- LINK 1                -->
+  <!-- ===================== -->
+  <xacro:link_with_mesh
+    name="link_1"
+    mass="5.138448166579201"
+    ixx="0.008000655991019845"
+    iyy="0.027097061500660838"
+    izz="0.03032628129012202"
+    ixy="0" iyz="0" ixz="-0.0021381416370070405"
+    inertial_xyz="-0.09943 -0.0475 0.0137458"
+    inertial_rpy="0 0 0"
+    visual_xyz="-0.012 -0.146 -0.150454"
+    visual_rpy="0 0 0"
+    mesh="link_1"/>
+
+  <!-- ===================== -->
+  <!-- LINK 2                -->
+  <!-- ===================== -->
+  <xacro:link_with_mesh
+    name="link_2"
+    mass="5.151950584299963"
+    ixx="0.00740599537223513"
+    iyy="0.02745755606703487"
+    izz="0.02834185435851677"
+    ixy="0" iyz="0" ixz="-0.007543664994100627"
+    inertial_xyz="-0.096 0 -0.0205"
+    inertial_rpy="0 0 0"
+    visual_xyz="0.157 -0.0985 -0.187459"
+    visual_rpy="0 0 0"
+    mesh="link_2"/>
+
+  <!-- ===================== -->
+  <!-- LINK 3                -->
+  <!-- ===================== -->
+  <xacro:link_with_mesh
+    name="link_3"
+    mass="3.645937615450883"
+    ixx="0.004951332615529975"
+    iyy="0.026850603080012185"
+    izz="0.028150646650248246"
+    ixy="0" iyz="0" ixz="0.0027981441550968262"
+    inertial_xyz="-0.06403 0 0.039076"
+    inertial_rpy="0 0 0"
+    visual_xyz="0.349 -0.0985 -0.146459"
+    visual_rpy="0 0 0"
+    mesh="link_3"/>
+
+  <!-- ===================== -->
+  <!-- LINK 4                -->
+  <!-- ===================== -->
+  <xacro:link_with_mesh
+    name="link_4"
+    mass="0.19557667730615838"
+    ixx="0.0002443752366105721"
+    iyy="0.0003030500174527606"
+    izz="0.0000604052068085767"
+    ixy="0" iyz="0" ixz="0"
+    inertial_xyz="0 0 0.049968"
+    inertial_rpy="0 0 0"
+    visual_xyz="0.541 0.0985 0.171064"
+    visual_rpy="3.14159 0 0"
+    mesh="link_4"/>
+
+  <!-- ===================== -->
+  <!-- FIX BASE TO WORLD     -->
+  <!-- ===================== -->
+  <joint name="world_to_base" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <!-- ===================== -->
+  <!-- JOINTS                -->
+  <!-- ===================== -->
+
+  <joint name="base_link_slider" type="prismatic">
+    <origin xyz="0.012 0.146 0.08" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.15" effort="1000000" velocity="1.0"/>
+  </joint>
+
+  <joint name="link1_joint" type="revolute">
+    <origin xyz="-0.169 -0.0475 0.037005" rpy="0 0 0"/>
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708" effort="1000000" velocity="1.0"/>
+  </joint>
+
+  <joint name="link2_joint" type="revolute">
+    <origin xyz="-0.192 0 -0.041" rpy="0 0 0"/>
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708" effort="1000000" velocity="1.0"/>
+  </joint>
+
+  <joint name="link3_joint" type="continuous">
+    <origin xyz="-0.192 0 0.024605" rpy="3.14159 0 0"/>
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+</robot>
+
