@@ -1,5 +1,11 @@
 build/
 install/
 log/
+<<<<<<< HEAD
 *.pyc
 *.swp
+=======
+.vscode/
+__pycache__/
+*.pyc
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)

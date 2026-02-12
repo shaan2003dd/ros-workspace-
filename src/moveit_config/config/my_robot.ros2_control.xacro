@@ -8,6 +8,7 @@
                 <!-- By default, set up controllers for simulation. This won't work on real hardware -->
                 <plugin>mock_components/GenericSystem</plugin>
             </hardware>
+<<<<<<< HEAD
             <joint name="base_link_Slider-13">
                 <command_interface name="position"/>
                 <state_interface name="position">
@@ -40,6 +41,40 @@
                 <command_interface name="position"/>
                 <state_interface name="position">
                   <param name="initial_value">${initial_positions['MOTOR_Revolute-17']}</param>
+=======
+            <joint name="BASE_Slider-1">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['BASE_Slider-1']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="LINK1_Revolute-2">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['LINK1_Revolute-2']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="LINK2_Revolute-3">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['LINK2_Revolute-3']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="LINK3_Revolute-4">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['LINK3_Revolute-4']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="LINK4_Revolute-5">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['LINK4_Revolute-5']}</param>
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>

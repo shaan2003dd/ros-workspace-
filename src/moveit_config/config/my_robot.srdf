@@ -11,6 +11,7 @@
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="arm">
         <joint name="virtual_joint"/>
+<<<<<<< HEAD
         <joint name="world_to_base"/>
         <joint name="base_link_Slider-13"/>
         <joint name="link_1_Revolute-14"/>
@@ -60,4 +61,102 @@
     <disable_collisions link1="link_1" link2="link_2" reason="Adjacent"/>
     <disable_collisions link1="link_1" link2="link_3" reason="Never"/>
     <disable_collisions link1="link_2" link2="link_3" reason="Adjacent"/>
+=======
+        <joint name="BASE_Slider-1"/>
+        <joint name="LINK1_Revolute-2"/>
+        <joint name="LINK2_Revolute-3"/>
+        <joint name="LINK3_Revolute-4"/>
+    </group>
+    <group name="gripper">
+        <joint name="LINK4_Revolute-5"/>
+        <joint name="LINK4_Revolute-6"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="shaan" group="arm">
+        <joint name="BASE_Slider-1" value="0.0789"/>
+        <joint name="LINK1_Revolute-2" value="-1.3104"/>
+        <joint name="LINK2_Revolute-3" value="1.1542"/>
+        <joint name="LINK3_Revolute-4" value="3.2283"/>
+    </group_state>
+    <group_state name="shaan22" group="arm">
+        <joint name="BASE_Slider-1" value="0.0597"/>
+        <joint name="LINK1_Revolute-2" value="-1.5707"/>
+        <joint name="LINK2_Revolute-3" value="-1.4492"/>
+        <joint name="LINK3_Revolute-4" value="6.2831"/>
+    </group_state>
+    <group_state name="shaanenthiran1" group="arm">
+        <joint name="BASE_Slider-1" value="0.0597"/>
+        <joint name="LINK1_Revolute-2" value="-1.5707"/>
+        <joint name="LINK2_Revolute-3" value="1.5707"/>
+        <joint name="LINK3_Revolute-4" value="3.6796"/>
+        
+    </group_state>
+    <group_state name="shaanenthiran2" group="arm">
+        <joint name="BASE_Slider-1" value="0.091"/>
+        <joint name="LINK1_Revolute-2" value="0"/>
+        <joint name="LINK2_Revolute-3" value="1.5707"/>
+        <joint name="LINK3_Revolute-4" value="0"/>
+        
+    </group_state>
+    <group_state name="shaanenthiran3" group="arm">
+        <joint name="BASE_Slider-1" value="0.1395"/>
+        <joint name="LINK1_Revolute-2" value="-0.8591"/>
+        <joint name="LINK2_Revolute-3" value="-1.5707"/>
+        <joint name="LINK3_Revolute-4" value="2.3605"/>
+        
+    </group_state>
+    <group_state name="enthiran_chitti_2.0_jetti" group="arm">
+        <joint name="BASE_Slider-1" value="0.1314"/>
+        <joint name="LINK1_Revolute-2" value="-1.3798"/>
+        <joint name="LINK2_Revolute-3" value="1.5707"/>
+        <joint name="LINK3_Revolute-4" value="4.5474"/>
+        
+    </group_state>
+    <group_state name="shaanenthiran34" group="arm">
+        <joint name="BASE_Slider-1" value="0.0192"/>
+        <joint name="LINK1_Revolute-2" value="0.9806"/>
+        <joint name="LINK2_Revolute-3" value="-1.0327"/>
+        <joint name="LINK3_Revolute-4" value="3.263"/>
+        
+    </group_state>
+    <group_state name="shaanenthiran69" group="arm">
+        <joint name="BASE_Slider-1" value="0"/>
+        <joint name="LINK1_Revolute-2" value="-0.6682"/>
+        <joint name="LINK2_Revolute-3" value="1.5707"/>
+        <joint name="LINK3_Revolute-4" value="5.1376"/>
+        
+    </group_state>
+    <group_state name="shaanenthiran99" group="arm">
+        <joint name="BASE_Slider-1" value="0.1223"/>
+        <joint name="LINK1_Revolute-2" value="-0.998"/>
+        <joint name="LINK2_Revolute-3" value="0"/>
+        <joint name="LINK3_Revolute-4" value="6.2831"/>
+        
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="gripper" parent_link="LINK4" group="gripper" parent_group="arm"/>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="BASE"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="BASE" link2="FINGER1" reason="Never"/>
+    <disable_collisions link1="BASE" link2="LINK1" reason="Adjacent"/>
+    <disable_collisions link1="BASE" link2="LINK2" reason="Never"/>
+    <disable_collisions link1="BASE" link2="LINK3" reason="Never"/>
+    <disable_collisions link1="BASE" link2="LINK4" reason="Never"/>
+    <disable_collisions link1="FINGER1" link2="FINGER2" reason="Default"/>
+    <disable_collisions link1="FINGER1" link2="LINK1" reason="Never"/>
+    <disable_collisions link1="FINGER1" link2="LINK2" reason="Never"/>
+    <disable_collisions link1="FINGER1" link2="LINK3" reason="Never"/>
+    <disable_collisions link1="FINGER1" link2="LINK4" reason="Adjacent"/>
+    <disable_collisions link1="FINGER2" link2="LINK1" reason="Never"/>
+    <disable_collisions link1="FINGER2" link2="LINK2" reason="Never"/>
+    <disable_collisions link1="FINGER2" link2="LINK3" reason="Never"/>
+    <disable_collisions link1="FINGER2" link2="LINK4" reason="Adjacent"/>
+    <disable_collisions link1="LINK1" link2="LINK2" reason="Adjacent"/>
+    <disable_collisions link1="LINK1" link2="LINK3" reason="Never"/>
+    <disable_collisions link1="LINK1" link2="LINK4" reason="Never"/>
+    <disable_collisions link1="LINK2" link2="LINK3" reason="Adjacent"/>
+    <disable_collisions link1="LINK2" link2="LINK4" reason="Never"/>
+    <disable_collisions link1="LINK3" link2="LINK4" reason="Adjacent"/>
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
 </robot>

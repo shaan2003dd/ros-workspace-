@@ -8,6 +8,7 @@ default_acceleration_scaling_factor: 0.1
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
+<<<<<<< HEAD
   MOTOR_Revolute-17:
     has_velocity_limits: true
     max_velocity: 1000000.0
@@ -36,5 +37,35 @@ joint_limits:
   link_3_Revolute-16:
     has_velocity_limits: true
     max_velocity: 1000000.0
+=======
+  BASE_Slider-1:
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  LINK1_Revolute-2:
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  LINK2_Revolute-3:
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  LINK3_Revolute-4:
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  LINK4_Revolute-5:
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  LINK4_Revolute-6:
+    has_velocity_limits: true
+    max_velocity: 1.0
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
     has_acceleration_limits: true
     max_acceleration: 1.0

@@ -3,7 +3,11 @@
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
 
     <!-- Import my_robot urdf file -->
+<<<<<<< HEAD
     <xacro:include filename="$(find my_robot_description)/urdf/my_robot.urdf.xacro" />
+=======
+    <xacro:include filename="$(find my_robot_description)/urdf/my_robot_processed.urdf" />
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
 
     <!-- Import control_xacro -->
     <xacro:include filename="my_robot.ros2_control.xacro" />

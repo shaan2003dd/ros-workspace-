@@ -1,6 +1,7 @@
 moveit_setup_assistant_config:
   urdf:
     package: my_robot_description
+<<<<<<< HEAD
     relative_path: urdf/my_robot.urdf.xacro
   srdf:
     relative_path: config/my_robot.srdf
@@ -8,6 +9,15 @@ moveit_setup_assistant_config:
     author_name: swqd
     author_email: wqdqd@gmail.com
     generated_timestamp: 1767683191
+=======
+    relative_path: urdf/my_robot_processed.urdf
+  srdf:
+    relative_path: config/my_robot.srdf
+  package_settings:
+    author_name: shaan
+    author_email: shaanimaan40@gmail.com
+    generated_timestamp: 1770715364
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
   control_xacro:
     command:
       - position

@@ -27,7 +27,11 @@ Visualization Manager:
         Robot Alpha: 0.5
       Value: true
   Global Options:
+<<<<<<< HEAD
     Fixed Frame: world
+=======
+    Fixed Frame: BASE
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
   Tools:
     - Class: rviz_default_plugins/Interact
     - Class: rviz_default_plugins/MoveCamera
@@ -43,7 +47,11 @@ Visualization Manager:
         Z: 0.30
       Name: Current View
       Pitch: 0.5
+<<<<<<< HEAD
       Target Frame: world
+=======
+      Target Frame: BASE
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
       Yaw: -0.623
 Window Geometry:
   Height: 975

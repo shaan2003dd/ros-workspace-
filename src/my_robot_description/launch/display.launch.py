@@ -8,7 +8,11 @@ from ament_index_python.packages import get_package_share_path
 def generate_launch_description():
 
     urdf_path = os.path.join(get_package_share_path('my_robot_description'),
+<<<<<<< HEAD
                              'urdf', 'my_robot.urdf.xacro')
+=======
+                             'urdf', 'my_robot.urdf')
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
     rviz_config_path = os.path.join(get_package_share_path('my_robot_description'),
                                     'rviz', 'urdf_config.rviz')
     
@@ -35,4 +39,8 @@ def generate_launch_description():
         robot_state_publisher_node,
         joint_state_publisher_gui_node,
         rviz2_node
+<<<<<<< HEAD
     ])
+=======
+    ])
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)

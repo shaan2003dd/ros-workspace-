@@ -17,10 +17,17 @@ controller_manager:
 arm_controller:
   ros__parameters:
     joints:
+<<<<<<< HEAD
       - base_link_Slider-13
       - link_1_Revolute-14
       - link_2_Revolute-15
       - link_3_Revolute-16
+=======
+      - BASE_Slider-1
+      - LINK1_Revolute-2
+      - LINK2_Revolute-3
+      - LINK3_Revolute-4
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
     command_interfaces:
       - position
     state_interfaces:
@@ -30,7 +37,11 @@ arm_controller:
 gripper_controller:
   ros__parameters:
     joints:
+<<<<<<< HEAD
       - MOTOR_Revolute-17
+=======
+      - LINK4_Revolute-5
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
     command_interfaces:
       - position
     state_interfaces:

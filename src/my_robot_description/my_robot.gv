@@ -1,0 +1,23 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"link_1" [label="link_1"];
+"link_2" [label="link_2"];
+"link_3" [label="link_3"];
+"link_4" [label="link_4"];
+"finger_left" [label="finger_left"];
+"finger_right" [label="finger_right"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_link_Slider-15" [label="xyz: 0.068 -5e-05 0 \nrpy: -1.5708 -0 0"]
+"base_link_Slider-15" -> "link_1"
+"link_1" -> "link_1_Revolute-16" [label="xyz: -0.0475 -0.169 0.012105 \nrpy: 0 -9.37695e-46 0"]
+"link_1_Revolute-16" -> "link_2"
+"link_2" -> "link_2_Revolute-17" [label="xyz: 0 -0.1402 -0.042 \nrpy: 0 9.37695e-46 0"]
+"link_2_Revolute-17" -> "link_3"
+"link_3" -> "link_3_Revolute-18" [label="xyz: -2.49e-06 -0.168 0.024605 \nrpy: 3.14159 -0 0"]
+"link_3_Revolute-18" -> "link_4"
+"link_4" -> "link_4_Revolute-19" [label="xyz: -0.00355008 0.0100584 0.018 \nrpy: 1.5708 -0 -1.57081"]
+"link_4_Revolute-19" -> "finger_left"
+"link_4" -> "link_4_Revolute-20" [label="xyz: -0.00355028 -0.0100416 0.018 \nrpy: 1.5708 -0 -1.57081"]
+"link_4_Revolute-20" -> "finger_right"
+}

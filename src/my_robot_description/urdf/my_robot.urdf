@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="PI" value="3.14159265359" />
+    <xacro:property name="mesh_scale" value="0.001 0.001 0.001" />
+
+    <link name="world"/>
+
+    <joint name="world_to_base" type="fixed">
+        <parent link="world"/>
+        <child link="BASE"/>
+        <origin xyz="0 0 0" rpy="${PI/2} 0 ${PI/2}"/>
+    </joint>
+
+    <link name="BASE">
+        <inertial>
+            <origin xyz="0.020675 -0.004607 -0.059678" rpy="0.0 0.0 0.0" />
+            <mass value="12.084188" />
+            <inertia ixx="0.137534" iyy="0.082523" izz="0.137154" ixy="0.000139" iyz="-0.026951" ixz="-0.000018" />
+        </inertial>
+        <visual name="BASE_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/BASE.stl" scale="${mesh_scale}" />
+            </geometry>
+        </visual>
+        <collision name="BASE_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/BASE.stl" scale="${mesh_scale}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="BASE_Slider-1" type="prismatic">
+        <origin xyz="-0.026999 -0.00005 0.0" rpy="0 0 -${PI}" />
+        <parent link="BASE" />
+        <child link="LINK1" />
+        <axis xyz="0 -1 0" />
+        <limit lower="0.0" upper="0.183" effort="1000" velocity="1.0" />
+    </joint>
+
+    <link name="LINK1">
+        <inertial>
+            <origin xyz="-0.048303 0.005349 0.097181" rpy="0.0 0.0 0.0" />
+            <mass value="5.265839" />
+            <inertia ixx="0.024010" iyy="0.024414" izz="0.009172" ixy="-0.000094" iyz="-0.004167" ixz="-0.000185" />
+        </inertial>
+        <visual name="LINK1_visual">
+            <origin xyz="-0.026999 -0.003849 0.0" rpy="0 0 ${PI}" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK1.stl" scale="${mesh_scale}" />
+            </geometry>
+        </visual>
+        <collision name="LINK1_collision">
+            <origin xyz="-0.026999 -0.003849 0.0" rpy="0 0 ${PI}" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK1.stl" scale="${mesh_scale}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="LINK1_Revolute-2" type="revolute">
+        <origin xyz="-0.0475 -0.016304 0.168999" rpy="0 0 0" />
+        <parent link="LINK1" />
+        <child link="LINK2" />
+        <axis xyz="0 1 0" />
+        <limit lower="-${PI/2}" upper="${PI/2}" effort="1000" velocity="1.0" />
+    </joint>
+
+    <link name="LINK2">
+        <inertial>
+            <origin xyz="0.0 0.020884 0.070195" rpy="0.0 0.0 0.0" />
+            <mass value="2.538582" />
+            <inertia ixx="0.008956" iyy="0.008908" izz="0.002949" ixy="0.0" iyz="-0.002911" ixz="0.0" />
+        </inertial>
+        <visual name="LINK2_visual">
+            <origin xyz="0.0205 0.012455 -0.169" rpy="0 0 ${PI}" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK2.stl" scale="${mesh_scale}" />
+            </geometry>
+        </visual>
+        <collision name="LINK2_collision">
+            <origin xyz="0.0205 0.012455 -0.169" rpy="0 0 ${PI}" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK2.stl" scale="${mesh_scale}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="LINK2_Revolute-3" type="revolute">
+        <origin xyz="0.0 0.041999 0.1402" rpy="0 0 0" />
+        <parent link="LINK2" />
+        <child link="LINK3" />
+        <axis xyz="0 1 0" />
+        <limit lower="-${PI/2}" upper="${PI/2}" effort="1000" velocity="1.0" />
+    </joint>
+
+    <link name="LINK3">
+        <inertial>
+            <origin xyz="0.0 -0.037572 0.062436" rpy="0.0 0.0 0.0" />
+            <mass value="4.302962" />
+            <inertia ixx="0.019982" iyy="0.020398" izz="0.004942" ixy="-0.000024" iyz="0.000921" ixz="0.000037" />
+        </inertial>
+        <visual name="LINK3_visual">
+            <origin xyz="0.0205 -0.029544 -0.3092" rpy="0 0 ${PI}" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK3.stl" scale="${mesh_scale}" />
+            </geometry>
+        </visual>
+        <collision name="LINK3_collision">
+            <origin xyz="0.0205 -0.029544 -0.3092" rpy="0 0 ${PI}" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK3.stl" scale="${mesh_scale}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="LINK3_Revolute-4" type="revolute">
+        <origin xyz="0.0 -0.024605 0.167999" rpy="${PI} 0 0" />
+        <parent link="LINK3" />
+        <child link="LINK4" />
+        <axis xyz="0 -1 0" />
+        <limit lower="0.0" upper="${2*PI}" effort="1000" velocity="1.0" />
+    </joint>
+
+    <link name="LINK4">
+        <inertial>
+            <origin xyz="0.0 -0.017032 0.020227" rpy="0.0 0.0 0.0" />
+            <mass value="0.320556" />
+            <inertia ixx="0.000081" iyy="0.000118" izz="0.000071" ixy="0.0" iyz="0.000006" ixz="0.0" />
+        </inertial>
+        <visual name="LINK4_visual">
+            <origin xyz="0.477191 0.00469 -0.0205" rpy="0 -${PI/2} 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK4.stl" scale="${mesh_scale}" />
+            </geometry>
+        </visual>
+        <collision name="LINK4_collision">
+            <origin xyz="0.477191 0.00469 -0.0205" rpy="0 -${PI/2} 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/LINK4.stl" scale="${mesh_scale}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <xacro:macro name="finger_link" params="prefix inertial_y inertial_z visual_z">
+        <link name="${prefix}">
+            <inertial>
+                <origin xyz="0.052675 ${inertial_y} ${inertial_z}" rpy="0.0 0.0 0.0" />
+                <mass value="0.059" />
+                <inertia ixx="0.00001" iyy="0.000055" izz="0.000052" ixy="0.0" iyz="0.0" ixz="0.0" />
+            </inertial>
+            <visual>
+                <origin xyz="-0.022694 -0.017951 ${visual_z}" rpy="0 0 ${PI/2}" />
+                <geometry>
+                    <mesh filename="package://my_robot_description/meshes/${prefix}.stl" scale="${mesh_scale}" />
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="-0.022694 -0.017951 ${visual_z}" rpy="0 0 ${PI/2}" />
+                <geometry>
+                    <mesh filename="package://my_robot_description/meshes/${prefix}.stl" scale="${mesh_scale}" />
+                </geometry>
+            </collision>
+        </link>
+    </xacro:macro>
+
+    <joint name="LINK4_Revolute-5" type="revolute">
+        <origin xyz="-0.010058 -0.018 -0.002549" rpy="${PI/2} 0 -1.570806" />
+        <parent link="LINK4" />
+        <child link="FINGER1" />
+        <axis xyz="0 -1 0" />
+        <limit lower="0.0" upper="${PI/4}" effort="1000" velocity="1.0" />
+    </joint>
+    <xacro:finger_link prefix="FINGER1" inertial_y="0.002507" inertial_z="0.006236" visual_z="-0.487249" />
+
+    <joint name="LINK4_Revolute-6" type="revolute">
+        <origin xyz="0.010041 -0.018 -0.00355" rpy="${PI/2} 0 -1.570806" />
+        <parent link="LINK4" />
+        <child link="FINGER2" />
+        <axis xyz="0 -1 0" />
+        <limit lower="-${PI/4}" upper="0.0" effort="1000" velocity="1.0" />
+        <mimic joint="LINK4_Revolute-5" multiplier="-1.0" offset="0.0" />
+    </joint>
+    <xacro:finger_link prefix="FINGER2" inertial_y="0.003507" inertial_z="-0.007208" visual_z="-0.467149" />
+
+</robot>

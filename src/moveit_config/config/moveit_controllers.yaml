@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# MoveIt uses this configuration for controller management
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
 moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
 
 moveit_simple_controller_manager:
@@ -8,17 +12,31 @@ moveit_simple_controller_manager:
   arm_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
+<<<<<<< HEAD
     default: true
     joints:
       - base_link_Slider-13
       - link_1_Revolute-14
       - link_2_Revolute-15
       - link_3_Revolute-16
+=======
+    joints:
+      - BASE_Slider-1
+      - LINK1_Revolute-2
+      - LINK2_Revolute-3
+      - LINK3_Revolute-4
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
 
   gripper_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
+<<<<<<< HEAD
     default: false
     joints:
       - MOTOR_Revolute-17
       - MOTOR_Revolute-18
+=======
+    joints:
+      - LINK4_Revolute-5
+
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)

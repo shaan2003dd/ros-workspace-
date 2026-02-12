@@ -1,8 +1,16 @@
 # Default initial positions for my_robot's ros2_control fake system
 
 initial_positions:
+<<<<<<< HEAD
   MOTOR_Revolute-17: 0
   base_link_Slider-13: 0
   link_1_Revolute-14: 0
   link_2_Revolute-15: 0
   link_3_Revolute-16: 0
+=======
+  BASE_Slider-1: 0
+  LINK1_Revolute-2: 0
+  LINK2_Revolute-3: 0
+  LINK3_Revolute-4: 0
+  LINK4_Revolute-5: 0
+>>>>>>> 1a366d7 (Adding new ROS2 workspace files)
